@@ -16,43 +16,58 @@ export default function TexthtmlForm(props) {
     setText(event.target.value);
   };
 
-  const handleClearClick = ()=>{
-    setText("")
-  }
+  const handleClearClick = () => {
+    setText("");
+  };
+
+  const handleCopyClick = () => {
+    var text = document.getElementById("mytext");
+    navigator.clipboard.writeText(text.value);
+  };
+
+  const handleExtraSpaces = () => {
+    let newText = Text.split(/[ ]+/);
+    setText(newText.join(" "));
+  };
 
   return (
     <>
-    <div className="container">
-      <div className="container mb-3">
-        <h1> {props.heading}</h1>
-        <label htmlFor="myBox" className="htmlForm-label">
-          
-        </label>
-        <textarea
-          type="text"
-          className="form-control"
-          value={Text}
-          onChange={handleOnChange}
-          aria-label="Large"
-          aria-describedby="inputGroup-sizing-sm"
-          rows="8"
-        />
-      </div>
-      <button className="btn btn-primary mx-1" onClick={handleClick}>
-       Convert to Uppercase
-      </button>
-      <button className="btn btn-primary mx-1" onClick={handleLoClick}>
-       Convert to Lower Case
-      </button>
-      <button className="btn btn-primary mx-1" onClick={handleClearClick}>
-       Clear Text 
-      </button>
+      <div className="container">
+        <div className="container mb-3">
+          <h1> {props.heading}</h1>
+          <label htmlFor="myBox" className="htmlForm-label"></label>
+          <textarea
+            type="text"
+            className="form-control"
+            value={Text}
+            onChange={handleOnChange}
+            aria-label="Large"
+            aria-describedby="inputGroup-sizing-sm"
+            rows="8"
+            id="mytext"
+          />
+        </div>
+        <button className="btn btn-primary mx-1" onClick={handleClick}>
+          Convert to Uppercase
+        </button>
+        <button className="btn btn-primary mx-1" onClick={handleLoClick}>
+          Convert to Lower Case
+        </button>
+        <button className="btn btn-primary mx-1" onClick={handleClearClick}>
+          Clear Text
+        </button>
+        <button className="btn btn-primary mx-1" onClick={handleCopyClick}>
+          Copy text
+        </button>
+        <button className="btn btn-primary mx-1" onClick={handleExtraSpaces}>
+          clear extra spaces
+        </button>
       </div>
 
       <div className="container my-5">
         <h3>Your text summary </h3>
         <p>number of characters : {Text.length}</p>
-        <p>number of words  : {Text.split(" ").length-1}</p>
+        <p>number of words : {Text.split(" ").length - 1}</p>
         <h4>preview text </h4>
         <p>{Text}</p>
       </div>
