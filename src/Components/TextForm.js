@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import PropTypes from "prop-types";
 export default function TexthtmlForm(props) {
+  
   const [Text, setText] = useState("Enter text here");
   const handleClick = () => {
     let newText = Text.toUpperCase();
@@ -34,7 +35,7 @@ export default function TexthtmlForm(props) {
     <>
       <div className="container">
         <div className="container mb-3">
-          <h1> {props.heading}</h1>
+          <h1 > {props.heading}</h1>
           <label htmlFor="myBox" className="htmlForm-label"></label>
           <textarea
             type="text"
