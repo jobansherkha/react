@@ -9,6 +9,10 @@ root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
+  /* for (let index = 0; index < array.length; index++) {
+    const element = array[index];
+    
+  } */
 );
 
 // If you want to start measuring performance in your app, pass a function
